@@ -2,21 +2,22 @@ let input = document.getElementById("input");
 let showTodo = document.getElementById('display');
 
 let arrayTodo = [];
-function addItems() {    
+function addItems() {
     if (input.value === "") {
         alert("Input Something");
         return;
     }
-    else {        
+    else {
         if (arrayTodo.includes(input.value)) {
             alert("Items already exist");
+            input.value = "";
             return;
         }
         else {
             showTodo.innerHTML = "";
             arrayTodo.push(input.value);
-        arrayTodo.map((arrayElement, index) => {
-            showTodo.innerHTML += `            
+            arrayTodo.map((arrayElement, index) => {
+                showTodo.innerHTML += `            
         <div class="display">
             <h1 id='arrayItem'>${arrayElement}</h1>
             <div>
@@ -25,9 +26,10 @@ function addItems() {
             </div>
         </div>
         `
-        })
+            })
+            input.value = "";
         }
-        
+
     }
 }
 
@@ -49,11 +51,16 @@ function del(rem) {
 }
 
 function edit(rem) {
-    arrayTodo.splice(rem, 1, input.value);
-    showTodo.innerHTML = "";
-    arrayTodo.map((sh, rem) => {
-        console.log(sh, rem);
-        showTodo.innerHTML += `
+    if (input.value === "") {
+        alert("Input Something");
+        return;
+    }
+    else {
+        arrayTodo.splice(rem, 1, input.value);
+        showTodo.innerHTML = "";
+        arrayTodo.map((sh, rem) => {
+            console.log(sh, rem);
+            showTodo.innerHTML += `
         <div class="display">
             <h1>${sh}</h1>
             <div>
@@ -62,5 +69,8 @@ function edit(rem) {
             </div>
         </div>
         `
-    })
+        })
+        input.value = "";
+    }
+
 }
