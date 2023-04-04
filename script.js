@@ -1,36 +1,38 @@
-let reveal = document.getElementById("reveal");
-let dis = document.getElementById("dis");
-let showTodo = document.getElementById('list');
+let input = document.getElementById("input");
+let showTodo = document.getElementById('display');
 
-
-
-let arrNew = [];
-function showBtn() {
-    if (reveal.value === "") {
+let arrayTodo = [];
+function addItems() {    
+    if (input.value === "") {
         alert("Input Something");
-        return
-    } else {
-        showTodo.innerHTML = "";
-        arrNew.push(reveal.value);
-        arrNew.map((sh, rem) => {
-            console.log(sh, rem);
-            showTodo.innerHTML += `
+        return;
+    }
+    else {
+        
+        if (arrayTodo.includes(input.value)) {
+            alert("Items already exist");
+            return;
+        }
+        else {
+            showTodo.innerHTML = "";
+            arrayTodo.push(input.value);
+        arrayTodo.map((arrayElement, index) => {
+            showTodo.innerHTML += `            
         <div class="dis">
-            <h1>${sh}</h1>
-            <button id='d-btn' onclick='del(${rem})'>Delete</button>
+            <h1>${arrayElement}</h1>
+            <button id='delete-btn' onclick='del(${index})'>Delete</button>
         </div>
         `
         })
+        }
+        
     }
-
-
 }
 
 function del(rem) {
-    arrNew.splice(rem, 1);
-
+    arrayTodo.splice(rem, 1);
     showTodo.innerHTML = "";
-    arrNew.map((sh, rem) => {
+    arrayTodo.map((sh, rem) => {
         console.log(sh, rem);
         showTodo.innerHTML += `
         <div class="dis">
