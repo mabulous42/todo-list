@@ -7,6 +7,7 @@ let showTodo = document.getElementById('list');
 let arrNew = [];
 function showBtn() {
     if (reveal.value === "") {
+        alert("Input Something");
         return
     } else {
         showTodo.innerHTML = "";
