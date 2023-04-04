@@ -17,8 +17,8 @@ function addItems() {
             arrayTodo.push(input.value);
         arrayTodo.map((arrayElement, index) => {
             showTodo.innerHTML += `            
-        <div class="dis">
-            <h1>${arrayElement}</h1>
+        <div class="display">
+            <h1 id='arrayItem'>${arrayElement}</h1>
             <div>
             <button id='delete-btn' onclick='edit(${index})'>Edit</button>
             <button id='delete-btn' onclick='del(${index})'>Delete</button>
@@ -37,7 +37,7 @@ function del(rem) {
     arrayTodo.map((sh, rem) => {
         console.log(sh, rem);
         showTodo.innerHTML += `
-        <div class="dis">
+        <div class="display">
             <h1>${sh}</h1>
             <div>
                 <button id='delete-btn' onclick='edit(${rem})'>Edit</button>
@@ -54,7 +54,7 @@ function edit(rem) {
     arrayTodo.map((sh, rem) => {
         console.log(sh, rem);
         showTodo.innerHTML += `
-        <div class="dis">
+        <div class="display">
             <h1>${sh}</h1>
             <div>
                 <button id='delete-btn' onclick='edit(${rem})'>Edit</button>
