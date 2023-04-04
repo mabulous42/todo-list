@@ -63,11 +63,6 @@
 }
 
 #arrayItem{
-    background-color: red;
-    width: 50%;
-    height: 50px;
-    /* overflow: hidden; */
-    color: white;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
