@@ -19,7 +19,10 @@ function addItems() {
             showTodo.innerHTML += `            
         <div class="dis">
             <h1>${arrayElement}</h1>
+            <div>
+            <button id='delete-btn' onclick='edit(${index})'>Edit</button>
             <button id='delete-btn' onclick='del(${index})'>Delete</button>
+            </div>
         </div>
         `
         })
@@ -36,7 +39,28 @@ function del(rem) {
         showTodo.innerHTML += `
         <div class="dis">
             <h1>${sh}</h1>
-            <button id='delete-btn' onclick='del(${rem})'>Delete</button>
+            <div>
+                <button id='delete-btn' onclick='edit(${rem})'>Edit</button>
+                <button id='delete-btn' onclick='del(${rem})'>Delete</button>
+            </div>
+        </div>
+        `
+    })
+}
+
+function edit(rem) {
+    // showTodo.innerHTML = input.value;
+    arrayTodo.splice(rem, 1, input.value);
+    showTodo.innerHTML = "";
+    arrayTodo.map((sh, rem) => {
+        console.log(sh, rem);
+        showTodo.innerHTML += `
+        <div class="dis">
+            <h1>${sh}</h1>
+            <div>
+                <button id='delete-btn' onclick='edit(${rem})'>Edit</button>
+                <button id='delete-btn' onclick='del(${rem})'>Delete</button>
+            </div>
         </div>
         `
     })
