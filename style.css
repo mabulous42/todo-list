@@ -50,7 +50,7 @@
 
 .dis{
     border: 1px solid grey;
-    height: 35px;    
+    padding: 5px;   
     margin-top: 20px;
     margin-bottom: 10px;
     background-color: rgb(165, 218, 206);

@@ -49,7 +49,6 @@ function del(rem) {
 }
 
 function edit(rem) {
-    // showTodo.innerHTML = input.value;
     arrayTodo.splice(rem, 1, input.value);
     showTodo.innerHTML = "";
     arrayTodo.map((sh, rem) => {
