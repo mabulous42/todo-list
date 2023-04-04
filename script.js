@@ -7,8 +7,7 @@ function addItems() {
         alert("Input Something");
         return;
     }
-    else {
-        
+    else {        
         if (arrayTodo.includes(input.value)) {
             alert("Items already exist");
             return;
@@ -37,7 +36,7 @@ function del(rem) {
         showTodo.innerHTML += `
         <div class="dis">
             <h1>${sh}</h1>
-            <button id='d-btn' onclick='del(${rem})'>Delete</button>
+            <button id='delete-btn' onclick='del(${rem})'>Delete</button>
         </div>
         `
     })
