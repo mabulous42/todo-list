@@ -82,11 +82,11 @@
     padding: 20px 0;
 }
 
-.edit-container{
+#edit-container{
     text-align: left;
 }
 
-.edit-container p{
+#edit-container p{
     background-color: rebeccapurple;
     color: white;
     width: fit-content;
