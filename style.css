@@ -20,6 +20,12 @@
     border-radius: 10px;
 }
 
+.overf{
+    overflow: auto;
+    height: 80vh;
+    padding-bottom: 20px;
+}
+
 #input,
 #input-edit{
     width: 88%;

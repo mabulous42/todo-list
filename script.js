@@ -9,28 +9,7 @@ let arrayTodo = [];
 showEditBox.style.display = "none";
 
 function printArray() {
-    OverallDisplay(arrayTodo);
-}
-
-
-let locStorage = [];
-function addItems() {
-
-    if (input.value === "") {
-        showStatusMessage.innerHTML = "<p id='error-message'>" + "Input field cannot be empty!!!" + "</p>";
-
-        return;
-    }
-    else {
-        // localStorage.setItem("count", input.value)
-        locStorage.push(input.value); //Add the text 'item1' to locStorage
-        localStorage.setItem('todoList', JSON.stringify(locStorage));
-
-        arrayTodo.push(input.value);
-        showStatusMessage.innerHTML = "<p id='success-message'>" + "Todo added successfully" + "</p>";
-        printArray();
-        input.value = "";
-    }
+    OverallDisplay(locStorage);
 }
 
 let getter = ""
@@ -40,6 +19,41 @@ function getLocalStorage() {
     OverallDisplay(getter);
 }
 getLocalStorage();
+
+let locStorage = getter;
+function addItems() {
+
+    if (input.value === "") {
+        showStatusMessage.innerHTML = "<p id='error-message'>" + "Input field cannot be empty!!!" + "</p>";
+
+        return;
+    }
+    else {
+        if (locStorage == "") {
+            locStorage = []
+            locStorage.push(input.value);
+            localStorage.setItem('todoList', JSON.stringify(locStorage));
+            arrayTodo.push(input.value);
+            showStatusMessage.innerHTML = "<p id='success-message'>" + "Todo added successfully" + "</p>";
+            printArray();
+            input.value = "";
+        } else {
+            locStorage.push(input.value);
+            localStorage.setItem('todoList', JSON.stringify(locStorage));
+            arrayTodo.push(input.value);
+            showStatusMessage.innerHTML = "<p id='success-message'>" + "Todo added successfully" + "</p>";
+            printArray();
+            input.value = "";
+        }
+        // localStorage.setItem("count", input.value)
+        // locStorage.push(input.value); //Add the text 'item1' to locStorage
+        // localStorage.setItem('todoList', JSON.stringify(locStorage));
+
+
+    }
+}
+
+
 
 function OverallDisplay(arrayName) {
     showTodo.innerHTML = "";
