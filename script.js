@@ -21,6 +21,7 @@ function getLocalStorage() {
 getLocalStorage();
 
 let locStorage = getter;
+
 function addItems() {
 
     if (input.value === "") {
@@ -37,6 +38,7 @@ function addItems() {
             showStatusMessage.innerHTML = "<p id='success-message'>" + "Todo added successfully" + "</p>";
             printArray();
             input.value = "";
+            
         } else {
             locStorage.push(input.value);
             localStorage.setItem('todoList', JSON.stringify(locStorage));
@@ -44,14 +46,10 @@ function addItems() {
             showStatusMessage.innerHTML = "<p id='success-message'>" + "Todo added successfully" + "</p>";
             printArray();
             input.value = "";
-        }
-        // localStorage.setItem("count", input.value)
-        // locStorage.push(input.value); //Add the text 'item1' to locStorage
-        // localStorage.setItem('todoList', JSON.stringify(locStorage));
-
-
+        }  
     }
 }
+
 
 
 
